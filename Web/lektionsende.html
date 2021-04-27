@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <title>Lektionsende!</title>
+        <meta http-equiv="refresh" content="2">
+    </head>
+    <body>
+    <div id="div1">
+        <h1 id="anzeige"></h1>
+    </div>
+
+
+    <script>
+        
+            var anzeige1 =document.getElementById("anzeige");
+    
+            var stu = new Date().getHours();
+            var min = new Date().getMinutes();
+            var sec = new Date().getSeconds();
+            var leke = 0;
+
+            if (stu>= 17) {
+                leke = ((15 + ((stu-17)*45))%60);
+            }
+            else if (stu<10){
+                leke = ((50 + ((stu-8)*55))%60);
+            }
+            else {
+                leke = ((50 + ((stu-10)*55))%60);
+            }
+
+            if (leke<min){
+                leke = ((leke+55)%60);
+            }
+
+            if (leke != 45){
+                min = ((min - (leke-45))%60);
+            }
+            
+            var minproz = (100/(45*60))*((min*60)+sec);
+
+            if (minproz > 100){
+                minproz= Math.round(-(100/3 -(minproz-100)));
+            }
+            anzeige1.innerHTML = (minproz+"%");
+
+
+        
+    
+    </script>
+
+</body>
+</html>

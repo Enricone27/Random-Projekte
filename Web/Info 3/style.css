@@ -1,0 +1,31 @@
+
+@font-face {
+	font-family: Enrico;
+	src: url(EnricoSchrift.ttf);
+	}
+
+
+
+#div1 {
+	background-color: rgb(190, 190, 190);
+	border-style: groove;
+	border-width: 15px;
+	color: rgb(45, 45, 45);
+	margin-bottom: 100px;
+	margin-left: 60px;
+	margin-right: 60px;
+	margin-top: 40px;
+	padding-bottom: 40px;
+	font-family: Enrico;
+    font-size: 100px;
+    text-align: center;
+    
+}
+
+a:visited {
+    color: rgb(220, 16 ,10);
+}
+
+a:link {
+    color: rgb(220, 16 ,10);
+}

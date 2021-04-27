@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <title>Wie lange noch zum Geburtstag!</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+    <div id="div1">
+        <h1 class="Teil1">Wie lange noch bis zu meinem Geburtstag???</h1>
+        <form class="Teil1">
+             Dein Geburtsdatum: <select id="tag">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>   
+                <option value="17">17</option>   
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select id="monat">
+                <option value="1">Januar</option>
+                <option value="2">Februar</option>
+                <option value="3">März</option>
+                <option value="4">April</option>
+                <option value="5">Mai</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Dezember</option>
+            </select>
+            <input type="button" value="Ausrechnen!" onclick="rechnung()">
+        <br>
+        <br>
+        <h3 id="anzeige" class="Teil1"></h3>
+        <p id="und" class="Teil1"></p>
+        <h3 id="anzeige2" class="Teil1"></h3>
+    </div>
+        
+        <script>
+            function rechnung(){
+                var anzeige1 =document.getElementById("anzeige");
+                var anzeige3 =document.getElementById("anzeige2");
+                var und2 =document.getElementById("und");
+                var step1 = document.getElementById("tag").value;
+                var tagvar = parseInt(step1);
+                var step2 = document.getElementById("monat").value;
+                var monatvar = parseInt(step2);
+
+                if(monatvar == 1){
+                    var datum = tagvar + 0;
+                }else if(monatvar == 2){
+                    var datum = tagvar + 31;
+                }else if(monatvar == 3){
+                    var datum = tagvar + 59;
+                }else if(monatvar == 4){
+                    var datum = tagvar + 90;
+                }else if(monatvar == 5){
+                    var datum = tagvar + 120;
+                }else if(monatvar == 6){
+                    var datum = tagvar + 151;
+                }else if(monatvar == 7){
+                    var datum = tagvar + 181;
+                }else if(monatvar == 8){
+                    var datum = tagvar + 212;
+                }else if(monatvar == 9){
+                    var datum = tagvar + 243;
+                }else if(monatvar == 10){
+                    var datum = tagvar + 273;
+                }else if(monatvar == 11){
+                    var datum = tagvar + 304;
+                }else if(monatvar == 12){
+                    var datum = tagvar + 334;
+                }
+                
+                var monatnow = new Date().getMonth();
+                var tagnow = new Date().getDate();
+
+
+                if(monatnow == 0) {
+                     var datumnow = tagnow + 0;
+                 }else if(monatnow == 1) {
+                     var datumnow = tagnow + 31;
+                 }else if(monatnow == 2) {
+                     var datumnow = tagnow + 59;
+                 }else if(monatnow == 3) {
+                     var datumnow = tagnow + 90;
+                 }else if(monatnow == 4) {
+                     var datumnow = tagnow + 120;
+                 }else if(monatnow == 5) {
+                     var datumnow = tagnow + 151;
+                 }else if(monatnow == 6) {
+                     var datumnow = tagnow + 181;
+                 }else if(monatnow == 7) {
+                     var datumnow = tagnow + 212;
+                 }else if(monatnow == 8) {
+                     var datumnow = tagnow + 243;
+                 }else if(monatnow == 9) {
+                     var datumnow = tagnow + 273;
+                 }else if(monatnow == 10) {
+                     var datumnow = tagnow + 304;
+                 }else if(monatnow == 11) {
+                     var datumnow = tagnow + 334;
+                 }
+
+                var fehlendetage = 365 - datumnow ;
+
+
+                if (datumnow > datum) {
+                    var enddatum = fehlendetage + datum ;
+                }else {
+                    var enddatum = datum - datumnow ;
+                }
+
+                if (enddatum == 0) {
+                    anzeige1.innerHTML = ("Glückwunsch du hast Heute Geburtstag!");
+                }else {
+                    anzeige1.innerHTML = ("Du hast in " + (enddatum) + " Tagen Geburtstag!");
+                }
+
+                var wochentag = new Date().getDay();
+
+                var datumrest = enddatum % 7;
+
+                var taganzeige = datumrest + wochentag;
+
+                if (taganzeige > 6){
+                    endtaganzeige = taganzeige % 7;
+                }else {
+                    endtaganzeige = taganzeige;
+                }
+                
+                if (endtaganzeige == 1){
+                    var stringtaganzeige = "Montag";
+                }else if (endtaganzeige == 2) {
+                    var stringtaganzeige = "Dienstag";
+                }else if (endtaganzeige == 3){
+                    var stringtaganzeige = "Mittwoch";
+                }else if (endtaganzeige == 4) {
+                    var stringtaganzeige = "Donnerstag";
+                }else if (endtaganzeige == 5) {
+                    var stringtaganzeige = "Freitag";
+                }else if (endtaganzeige == 6) {
+                    var stringtaganzeige = "Samstag";
+                }else if (endtaganzeige == 0) {
+                    var stringtaganzeige = "Sonntag";
+                }
+
+
+                anzeige3.innerHTML = ("Du hast an einem " + (stringtaganzeige) + " Geburtstag!");
+                
+                und2.innerHTML = ("und")
+            }
+        
+            
+        
+        </script>
+
+    </body>
+</html>
